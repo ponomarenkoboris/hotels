@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: #424242;
+}
+
+:root {
+    --button-background: linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+    --button-background-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+    --button-background-active: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(104.34deg, #41522E -15.34%, #BE8022 145.95%);
+}
+
+body {
+    margin: 0 auto;
+}
+
+.button {
+    color: #FFF;
+    outline: none;
+    border: none;
+    padding: 15px 0;
+    border-radius: 4px;
+    background: var(--button-background);
+    transition: background 200ms linear;
+
+    &:hover {
+        cursor: pointer;
+        background: var(--button-background-hover);
+    }
+
+    &:active {
+        cursor: pointer;
+        background: var(--button-background-active);
+    }
+}
