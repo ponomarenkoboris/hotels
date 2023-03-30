@@ -2,6 +2,8 @@ import './Hotels.scss';
 
 export const Hotels = () => {
     return (
-        <div>Hotels</div>
+        <div>
+            <h1>Hotels</h1>
+        </div>
     )
 }

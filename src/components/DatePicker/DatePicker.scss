@@ -1,0 +1,49 @@
+.date-picker__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    position: relative;
+    
+    .date-picker {
+        width: 296px;
+        height: 50px;
+        padding: 15px;
+        border: 1px solid #C9CACC;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__input {
+            width: 100%;
+            outline: none;
+            border: none;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        &__open-calendar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 5px;
+            background-color: inherit;
+            transition: background-color 100ms linear;
+
+            &:hover {
+                cursor: pointer;
+                background-color: lightgrey;
+            }
+
+            &:active {
+                cursor: pointer;
+                background-color: initial;
+            }
+        }
+    }
+}

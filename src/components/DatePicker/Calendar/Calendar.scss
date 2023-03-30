@@ -1,0 +1,113 @@
+.calendar {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    text-align: right;
+    background-color: #fff;
+    width: 100%;
+    padding: 16px;
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+
+    .calendar__month {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .month__select {
+            width: 140px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 18px;
+            color: rgba($color: #000000, $alpha: .8);
+            font-family: 'Aktiv Grotesk Corp', sans-serif;
+        }
+
+        .month__controllers {
+            .controller {
+                cursor: pointer;
+                padding: 0;
+                border: none;
+                outline: none;
+                background-color: inherit;
+            }
+            
+            .disabled__controller {
+                cursor: default;
+                opacity: .5;
+            }
+
+            .next-month {
+                transform: rotate(180deg);
+                margin-left: 32px;
+            }
+        }   
+    }
+
+    .calendar__days {
+        margin: 32px 0;
+        display: grid;
+        grid-template-columns: repeat(7, 32px);
+        gap: 5px;
+
+        
+        .day, 
+        .choosen__day,
+        .day__weekend, 
+        .disabled__day {
+            cursor: pointer;
+            padding: 6px;
+            font-size: 16px;
+            line-height: 18px;
+            border: none;
+            outline: none;
+            border: 2px solid inherit;
+            border-radius: 4px;
+            background-color: inherit;
+        }
+
+        .day:hover, .day__weekend:hover {
+            background-color: #41522E;
+            color: #FFFFFF;
+            border: 2px solid inherit;
+        }
+        
+        .day__name {
+            background-color: inherit;
+            padding: 0;
+            border: none;
+            color: #BDBDBD;
+            cursor: default;
+            pointer-events: none;
+        }
+        
+        .day__weekend {
+            color: #3877AF;
+        }
+
+        .disabled__day {
+            color: #C4C4C4;
+            cursor: default;            
+        }
+
+        .choosen__day {
+            background-color: #41522E;
+            color: #FFFFFF;
+            border: 2px solid inherit;
+        }
+    }
+
+    .calendar__today {
+        font-size: 16px;
+        line-height: 18px;
+        color: #3877AF;
+        border: none;
+        outline: none;
+        padding: 0;
+        cursor: pointer;
+        background-color: inherit;
+    }
+}

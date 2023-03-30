@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
     reducer, 
     loginState, 
@@ -10,6 +11,7 @@ import './Login.scss'
 
 export const Login = () => {
     const [{ password, email }, dispatch] = useReducer(reducer, loginState);
+    const navigate = useNavigate()
 
     const formSubmitHandler = (event) => {
         event.preventDefault()
@@ -21,6 +23,7 @@ export const Login = () => {
         if (emailResult.isValid && passwordResult.isValid) {
             dispatch({ type: actionTypes.SET_STATE_IS_VALID })
             sessionStorage.setItem('user', JSON.stringify({ email: email.value, password: password.value }))
+            navigate('/hotels')
 
         } else if (!emailResult.isValid && !passwordResult.isValid) {
             const payload = { emailTip: emailResult.tip, passwordTip: passwordResult.tip }
