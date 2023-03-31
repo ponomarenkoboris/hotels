@@ -1,0 +1,59 @@
+.layout {
+    height: 100vh;
+    width: 100vw;
+    background-color: #F4F4F4;
+
+    .header {
+        padding: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            margin: 0;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+        }
+
+        .logout {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .logout__text {
+                margin: 0 12px 0 0;
+            }
+        }
+    }
+
+    .hotels {
+        &__container {
+            margin: 0 auto;
+            display: flex;
+            width: fit-content;
+
+            .sidebar {
+                margin-right: 24px;
+
+                .search__wrapper {
+                    margin-bottom: 24px;
+                    background-color: red;
+                    height: 410px;
+                    width: 360px;
+                }
+                .favorites__wrapper {
+                    background-color: yellow;
+                    height: 472px;
+                    width: 360px;
+                }
+            }
+            
+            .results {
+                background-color: black;
+                width: 664px;
+                height: 902px;
+            }
+        }
+    }
+}
