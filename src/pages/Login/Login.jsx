@@ -33,7 +33,7 @@ export const Login = () => {
             dispatch({ type: actionTypes.SET_EMAIL_IS_NOT_VALID, payload: emailResult.tip })
 
         } else if (!passwordResult.isValid) {
-            dispatch({ type: actionTypes.SET_EMAIL_IS_NOT_VALID, payload: passwordResult.tip })
+            dispatch({ type: actionTypes.SET_PASSWORD_IS_NOT_VALID, payload: passwordResult.tip })
 
         }
     }
