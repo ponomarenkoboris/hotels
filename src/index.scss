@@ -32,3 +32,13 @@ body {
         background: var(--button-background-active);
     }
 }
+
+.block__bottom {
+    margin: 16px 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(135, 135, 135, 0.2);
+    border-radius: 8px;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}

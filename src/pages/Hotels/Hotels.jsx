@@ -1,4 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import { Search } from '../../components/Search/Search';
+import { Favorites } from '../../components/Favorites/Favorites'
+import { Results } from '../../components/Results/Results';
 import logoutIcon from '../../assets/hotels-page/logout/logout.svg';
 import './Hotels.scss';
 
@@ -22,10 +25,16 @@ export const Hotels = () => {
             <main className='hotels'>
                 <div className="hotels__container">
                     <div className="sidebar">
-                        <div className='search__wrapper'></div>
-                        <div className='favorites__wrapper'></div>
+                        <div className='search__wrapper'>
+                            <Search />
+                        </div>
+                        <div className='favorites__wrapper'>
+                            <Favorites />
+                        </div>
                     </div>
-                    <div className='results'></div>
+                    <div className='results__wrapper'>
+                        <Results />
+                    </div>
                 </div>
             </main>
         </div>

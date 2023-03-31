@@ -39,8 +39,8 @@ const getOptions = () => {
 }
 
 const getFormatDate = (day, month, year) => {
-    const formatedDay = day > 10 ? `${day}` : `0${day}`
-    const formatedMonth = month > 10 ? `${month}` : `0${month}`
+    const formatedDay = day >= 10 ? `${day}` : `0${day}`
+    const formatedMonth = month >= 10 ? `${month}` : `0${month}`
 
     return `${formatedDay}.${formatedMonth}.${year}`
 }

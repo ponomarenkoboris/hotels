@@ -1,0 +1,82 @@
+.hotel {
+    width: 100%;
+    .booking {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    
+        .booking__info {
+            .info__name {
+                margin: 0 0 4px 0;
+                font-weight: 300;
+                font-size: 17px;
+                line-height: 22px;
+            }
+    
+            .booking__dates {
+                color: #878787;
+                display: flex;
+                align-items: center;
+    
+                .dates__line {
+                    width: 9px;
+                    height: 1px;
+                    margin: 0 13px;
+                    background-color: #C4C4C4;
+                }
+    
+                .dates__start,
+                .dates__duration {
+                    margin: 0;
+                    color: #878787;
+                }
+            }
+        }
+    
+        .favorite__btn {
+            display: block;
+            width: 21px;
+            height: 18px;
+            background-color: inherit;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background-image: url('../../assets/hotels-page/favorite/red-heart.svg');
+            background-repeat: no-repeat;
+    
+            &:hover {
+                background-image: url('../../assets/hotels-page/favorite/grey-heart.svg');
+            }
+        }
+    }
+    
+    .rating-price {
+        display: flex;
+        justify-content: space-between;
+    
+        .price__wrapper {
+    
+            .price__text{
+                display: inline;
+                margin: 0;
+                font-weight: 300;
+                font-size: 11px;
+                line-height: 22px;
+                letter-spacing: -0.408px;
+                color: #878787;
+            }
+    
+            .price {
+                display: inline;
+                margin: 0 0 0 8px;
+                font-weight: 400;
+                font-size: 17px;
+                line-height: 22px;
+                text-align: right;
+                color: #424242;
+            }
+        }
+    }
+    
+    
+}
