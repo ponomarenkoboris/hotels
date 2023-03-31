@@ -2,7 +2,7 @@
     background-color: #FFFFFF;
     box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
     border-radius: 16px;
-    padding: 48px 32px;
+    padding: 44px 32px;
     width: 100%;
 
     .results__header {
@@ -32,10 +32,12 @@
         }
     }
 
+    
+
     .search-results__wrapper {
 
         .results__favorites {
-            margin-bottom: 12px;
+            margin: 0 0 36px 0;
             font-weight: 300;
             font-size: 17px;
             line-height: 22px;
@@ -79,7 +81,38 @@
                     padding: 13px 15px;
                     border-radius: 50%;
                 }
+                
             }
+        }
+    }
+
+    @media (max-width: 698px) {
+        .results__header {
+
+            .header__location {
+    
+                .location__text {
+                    font-size: 22px;
+                    line-height: 28px;
+                }
+
+                img {
+                    height: 3px;
+                    height: 15px;
+                    margin: 0 5px;
+                }
+            }
+
+            .header__date {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+        .results__favorites {
+            text-align: center;
+        }
+        .result__house {
+            display: none;
         }
     }
 

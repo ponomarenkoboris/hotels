@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom'
 import { ProtectedRoute } from './ProtectedRoute/ProtectedRoute'
 import { Login } from '../pages/Login/Login'
-import { Hotels } from '../pages/Hotels/Hotels'
+import { Booking } from '../pages/Booking/Booking'
 
 export const Router = () => {
     const router = createBrowserRouter([
@@ -10,8 +10,8 @@ export const Router = () => {
             element: <Login />
         },
         {
-            path: '/hotels',
-            element: <ProtectedRoute><Hotels /></ProtectedRoute>
+            path: '/booking',
+            element: <ProtectedRoute><Booking /></ProtectedRoute>
         },
         {
             path: '*',

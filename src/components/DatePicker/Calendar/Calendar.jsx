@@ -4,12 +4,18 @@ import arrow from '../../../assets/hotels-page/date-picker/back.svg';
 import './Calendar.scss';
 
 export const Calendar = ({ initialDate, onPick }) => {
-    const [ initialDay, initialMonth, initialYear ] = initialDate.split('.').map(item => parseInt(item))
+    const state = initialDate.split('.').reduce((total, curr, idx) => {
+        if (idx === 0) total.day = +curr
+        if (idx === 1) total.month = +curr
+        if (idx === 2) total.year = +curr
+        return total
+    }, {})
     const options = getOptions()
-    const [{ day, month, year, optionValue }, setDate] = useState({ day: initialDay, month: initialMonth, year: initialYear, optionValue: options[0]})
+    const [{ day, month, year, optionValue }, setDate] = useState({ ...state, optionValue: options[0]})
     const days = getDaysInMonth(getFormatDate(day, month, year))
 
     const pickDate = (event) => {
+        event.preventDefault()
         const targetDay = event.target.dataset.day || null
         if (targetDay && !event.target.classList.contains('choosen__day') && !event.target.classList.contains('disabled__day')) {
             event.target.classList.add('choosen__day')
@@ -59,14 +65,14 @@ export const Calendar = ({ initialDate, onPick }) => {
     }
 
     useEffect(() => {
-        const optionValue = options.find(option => option.includes(months[parseInt(initialMonth) - 1]))
+        const optionValue = options.find(option => option.includes(months[parseInt(state.month) - 1]))
         setDate({ 
-            day: initialDay, 
-            month: initialMonth, 
-            year: initialYear, 
+            day: state.day, 
+            month: state.month, 
+            year: state.year, 
             optionValue
         })
-    }, [initialDay, initialMonth, initialYear])
+    }, [state.day, state.month, state.year])
 
     return (
         <div className='calendar'>

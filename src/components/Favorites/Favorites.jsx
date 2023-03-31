@@ -19,9 +19,8 @@ export const Favorites = () => {
             </div>
             <div className='favorites__hotels'>
                 {[1, 2, 3].map(item => (
-                    <>
+                    <div key={item}>
                         <Hotel 
-                            key={item}
                             name={'Moscow Marriott Grand Hotel'} 
                             startDate={'28 June, 2020'}
                             duration={'1 день'} 
@@ -29,7 +28,7 @@ export const Favorites = () => {
                             price={'23 924'}
                         />
                         {item !== 3 && <hr className='block__bottom' />}
-                    </>
+                    </div>
                 ))}
             </div>
         </div>

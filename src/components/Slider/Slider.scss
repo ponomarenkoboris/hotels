@@ -1,0 +1,21 @@
+.slider__wrapper {
+    padding: 28px 0;
+    width: 100%;
+    overflow-x: auto;
+    touch-action: pan-x;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .slider {
+        display: flex;
+        align-items: center;
+
+        .slide {
+            margin: 0 12px 0 0;
+            width: 164px;
+            height: 149px;
+        }
+    }
+}

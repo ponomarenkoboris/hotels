@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from 'react';
-import { actionTypes, datePickerState, reducer, validator } from './datePicker.utils'
+import { actionTypes, datePickerState, reducer, validator, calendarBlurListenerCreator } from './datePicker.utils'
 import { Calendar } from './Calendar/Calendar';
 import calendarIcon from '../../assets/hotels-page/date-picker/calendar.svg'
 import './DatePicker.scss';
@@ -9,7 +9,12 @@ const isValid = validator()
 export const DatePicker = ({ onChange }) => {
     const [{ pickedDate, isCalendar, inputValue }, dispatch] = useReducer(reducer, datePickerState)
     
-    const toogleCalendar = () => dispatch({ type: actionTypes.TOOGLE_CALENDAR, payload: !isCalendar })
+    const toogleCalendar = (event) => {
+        event.stopPropagation()
+        dispatch({ type: actionTypes.TOOGLE_CALENDAR, payload: !isCalendar })
+    }
+
+    const blurListener = calendarBlurListenerCreator(() => dispatch({ type: actionTypes.TOOGLE_CALENDAR, payload: false }))
 
     const pickHandler = (date) => dispatch({ type: actionTypes.SET_DATE, payload: date })
 
@@ -23,6 +28,11 @@ export const DatePicker = ({ onChange }) => {
     useEffect(() => {
         onChange(pickedDate)
     }, [pickedDate])
+
+    useEffect(() => {
+        if (isCalendar) document.addEventListener('click', blurListener)
+        else document.removeEventListener('click', blurListener)
+    }, [isCalendar])
 
     return (
         <div className='date-picker__wrapper'>

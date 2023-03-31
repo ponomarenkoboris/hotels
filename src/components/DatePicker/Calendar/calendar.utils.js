@@ -84,7 +84,7 @@ const getDaysInMonth = (date) => {
     if (weeks[weeks.length - 1].length !== 7) {
         const missingDaysCount = 7 - weeks[weeks.length - 1].length
         const nextYear = monthIdx + 1 > 11 ? year + 1 : year
-        const nextMonth = monthIdx + 1 > 11 ? 0  :monthIdx + 1
+        const nextMonth = monthIdx + 1 > 11 ? 0 : monthIdx + 1
 
         for (let i = 1; i <= missingDaysCount; i++) {
             const dayOfWeek = new Date(nextYear, nextMonth, i).getDay()

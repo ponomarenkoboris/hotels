@@ -50,7 +50,53 @@
             }
             
             .results__wrapper {
-                width: 664px;
+                max-width: 664px;
+            }
+        }
+
+        @media (max-width: 1061px) {
+            .hotels__container {
+                flex-direction: column;
+
+                .sidebar {
+                    display: flex;
+                    margin: 0;
+
+                    .search__wrapper {
+                        margin-right: 24px;
+                    }
+                }
+
+                .results__wrapper {
+                    width: 100%;
+                }
+            }
+        }
+
+        @media (max-width: 774px) {
+            .hotels__container {
+
+                .sidebar {
+                    flex-direction: column-reverse;
+                    align-items: center;
+
+                    .search__wrapper {
+                        margin: 0 0 24px 0;
+                    }
+
+                    .favorites__wrapper {
+                        margin-bottom: 24px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 698px) {
+            .hotels__container {
+
+                .results__wrapper {
+                    width: 360px;
+                }
             }
         }
     }

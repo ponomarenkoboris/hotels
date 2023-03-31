@@ -38,7 +38,7 @@ const actionTypes = {
 const reducer = (state, action) => {
     switch (action.type) {
         case actionTypes.SET_DATE:
-            return { ...state, pickedDate: action.payload, inputValue: action.payload }
+            return { isCalendar: false, pickedDate: action.payload, inputValue: action.payload }
         case actionTypes.TOOGLE_CALENDAR:
             return { ...state, isCalendar: action.payload }
         case actionTypes.SET_INPUT_VALUE:
@@ -48,8 +48,18 @@ const reducer = (state, action) => {
     }
 }
 
+const calendarBlurListenerCreator = (closeCallback) => {
+    return (event) => {
+        event.preventDefault();
+        if (!event.target.closest('.calendar') && !event.target.classList.contains('day')) {
+            closeCallback()
+        }
+    }
+}
+
 export {
     validator,
+    calendarBlurListenerCreator,
     dateRegExp,
     datePickerState,
     actionTypes,

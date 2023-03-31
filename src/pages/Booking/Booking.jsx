@@ -3,9 +3,9 @@ import { Search } from '../../components/Search/Search';
 import { Favorites } from '../../components/Favorites/Favorites'
 import { Results } from '../../components/Results/Results';
 import logoutIcon from '../../assets/hotels-page/logout/logout.svg';
-import './Hotels.scss';
+import './Booking.scss';
 
-export const Hotels = () => {
+export const Booking = () => {
     const navigate = useNavigate()
     const logoutHandler = () => {
         sessionStorage.removeItem('user')

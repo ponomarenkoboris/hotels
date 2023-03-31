@@ -1,6 +1,8 @@
-import { Hotel } from '../Hotel/Hotel'
-import houseImg from '../../assets/hotels-page/hotel/house.svg'
-import arrow from '../../assets/hotels-page/results/arrow.svg'
+import { Hotel } from '../Hotel/Hotel';
+import { Slider } from '../Slider/Slider';
+
+import houseImg from '../../assets/hotels-page/hotel/house.svg';
+import arrow from '../../assets/hotels-page/results/arrow.svg';
 import './Results.scss'
 export const Results = () => {
     return (
@@ -13,13 +15,13 @@ export const Results = () => {
                 </div>
                 <p className='header__date'>07 июля 2020</p>
             </div>
-            <div className='slider__wrapper'></div>
+            <Slider />
             <div className='search-results__wrapper'>
                 <p className='results__favorites'>Добавлено в Избранное: <span className='favorites__count'>3</span> отеля</p>
                 <div className='search-results'>
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(item => (
-                        <>
-                            <div key={item} className='result'>
+                        <div key={item}>
+                            <div className='result'>
                                 <div className="result__house">
                                     <img src={houseImg} alt={'Moscow Marriott Grand Hotel'} />
                                 </div>
@@ -33,7 +35,7 @@ export const Results = () => {
                                 />
                             </div>
                             {item !== 13 && <hr className='block__bottom' />}
-                        </>
+                        </div>
                     ))}
                 </div>
             </div>
