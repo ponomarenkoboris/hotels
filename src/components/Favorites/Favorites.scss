@@ -29,6 +29,10 @@
             padding: 4px 8px;
             cursor: pointer;
 
+            .descending {
+                transform: rotate(180deg);
+            }
+
             img {
                 margin-left: 4px;
             }

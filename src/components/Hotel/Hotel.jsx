@@ -2,7 +2,7 @@ import goldStar from '../../assets/hotels-page/rating/gold-star.svg';
 import greyStar from '../../assets/hotels-page/rating/grey-star.svg';
 import './Hotel.scss';
 
-export const Hotel = ({ name, startDate, duration, price, rating }) => {
+export const Hotel = ({ name, startDate, duration, price, rating, isFavorite, onFavoriteClick }) => {
     const ratingStars = Array.from(Array(5), (_, idx) => idx + 1 <= rating)
 
     return (
@@ -16,7 +16,7 @@ export const Hotel = ({ name, startDate, duration, price, rating }) => {
                         <p className='dates__duration'>{duration}</p>
                     </div>
                 </div>
-                <button className='favorite__btn'></button>
+                <button className={isFavorite ? 'favorite__btn favorite' : 'favorite__btn'} onClick={onFavoriteClick}></button>
             </div>
             <div className="rating-price">
                 <div className='rating'>

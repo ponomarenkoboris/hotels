@@ -35,18 +35,26 @@
     
         .favorite__btn {
             display: block;
-            width: 21px;
+            width: 22px;
             height: 18px;
             background-color: inherit;
             outline: none;
             border: none;
             cursor: pointer;
-            background-image: url('../../assets/hotels-page/favorite/red-heart.svg');
+            background-image: url('../../assets/hotels-page/favorite/white-heart.svg');
             background-repeat: no-repeat;
     
             &:hover {
                 background-image: url('../../assets/hotels-page/favorite/grey-heart.svg');
             }
+
+            &:active {
+                background-image: url('../../assets/hotels-page/favorite/red-heart.svg');
+            }
+        }
+        
+        .favorite {
+            background-image: url('../../assets/hotels-page/favorite/red-heart.svg');
         }
     }
     

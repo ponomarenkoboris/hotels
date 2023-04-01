@@ -1,10 +1,24 @@
 import { Hotel } from '../Hotel/Hotel';
 import { Slider } from '../Slider/Slider';
-
+import useFavoritesActions from '../../hooks/useFavoritesActions';
 import houseImg from '../../assets/hotels-page/hotel/house.svg';
 import arrow from '../../assets/hotels-page/results/arrow.svg';
 import './Results.scss'
+
+// TODO remove
+const mockHotel = {
+    name:'Moscow Marriott Grand Hotel',
+    startDate: '28 June, 2020',
+    duration: '2 день' ,
+    rating: 3,
+    price: '23 924',
+    isFavorite: true,
+}
 export const Results = () => {
+    const { appendToFavorites } = useFavoritesActions()
+
+    const onFavorite = (hotel) => appendToFavorites(hotel)
+
     return (
         <div className='results'>
             <div className='results__header'>
@@ -31,7 +45,8 @@ export const Results = () => {
                                     duration={'1 день'} 
                                     rating={3} 
                                     price={'23 924'}
-                                    isLast={item === 13}
+                                    isFavorite={false}
+                                    onFavoriteClick={() => onFavorite(mockHotel)}
                                 />
                             </div>
                             {item !== 13 && <hr className='block__bottom' />}
