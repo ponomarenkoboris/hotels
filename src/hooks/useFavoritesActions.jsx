@@ -1,11 +1,11 @@
 import { bindActionCreators } from "@reduxjs/toolkit";
+import { favoritesActionCreators } from '../store/booking/bookigSlice';
 import { useDispatch } from "react-redux";
-import { getFavoritesActionCreators } from '../store/favorites/favoritesSlice';
 
 const useFavoritesActions = () => {
     const dispatch = useDispatch()
-    const actionCreators = getFavoritesActionCreators()
-    return bindActionCreators(actionCreators, dispatch)
+    const actions = favoritesActionCreators()
+    return bindActionCreators(actions, dispatch)
 }
 
 export default useFavoritesActions

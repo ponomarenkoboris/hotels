@@ -1,10 +1,20 @@
-import { DatePicker } from '../DatePicker/DatePicker'
-
+import { DatePicker } from '../DatePicker/DatePicker';
+import useBookingActions from '../../hooks/useBookingActions';
 import './Search.scss'
 
 export const Search = () => {
+    const { getHotels } = useBookingActions()
+
     const submitHandler = (event) => {
         event.preventDefault()
+        const { location, checkInDate, daysCount } = event.target.elements
+        
+        const paylaod = {
+            location: location.value,
+            checkIn: checkInDate.value,
+            duration: daysCount.value
+        }
+        getHotels(paylaod)
     }
 
     return (
@@ -15,7 +25,7 @@ export const Search = () => {
             </label>
             <label className='check-in'>
                 <p className='search__label-text'>Дата заселения</p>
-                <DatePicker onChange={(date) => { console.log(date) }} />
+                <DatePicker />
             </label>
             <label className='days-count'>
                 <p className='search__label-text'>Количесвто дней</p>

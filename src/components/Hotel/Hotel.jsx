@@ -5,6 +5,15 @@ import './Hotel.scss';
 export const Hotel = ({ name, startDate, duration, price, rating, isFavorite, onFavoriteClick }) => {
     const ratingStars = Array.from(Array(5), (_, idx) => idx + 1 <= rating)
 
+    const endDefenition = (daysCount) => {
+        const string = daysCount.toString()
+        const lastChar = +string[string.length - 1]
+    
+        if (lastChar === 1) return `${daysCount} день`
+        else if (lastChar >= 2 && lastChar <= 4) return `${daysCount} дня`
+        else return `${daysCount} дней`
+    }
+
     return (
         <div className='hotel'>
             <div className="booking">
@@ -13,7 +22,7 @@ export const Hotel = ({ name, startDate, duration, price, rating, isFavorite, on
                     <div className='booking__dates'>
                         <p className='dates__start'>{startDate}</p>
                         <hr className='dates__line' />
-                        <p className='dates__duration'>{duration}</p>
+                        <p className='dates__duration'>{endDefenition(duration)}</p>
                     </div>
                 </div>
                 <button className={isFavorite ? 'favorite__btn favorite' : 'favorite__btn'} onClick={onFavoriteClick}></button>

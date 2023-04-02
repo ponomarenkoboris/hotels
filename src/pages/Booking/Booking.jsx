@@ -1,3 +1,5 @@
+import { useLayoutEffect } from 'react';
+import useBookingActions from '../../hooks/useBookingActions';
 import { useNavigate } from 'react-router-dom';
 import { Search } from '../../components/Search/Search';
 import { Favorites } from '../../components/Favorites/Favorites'
@@ -6,11 +8,17 @@ import logoutIcon from '../../assets/hotels-page/logout/logout.svg';
 import './Booking.scss';
 
 export const Booking = () => {
+    const { getHotels } = useBookingActions()
     const navigate = useNavigate()
     const logoutHandler = () => {
         sessionStorage.removeItem('user')
         navigate('/')
     }
+
+    useLayoutEffect(() => {
+        const payload = { location: 'Москва', checkIn: new Date().toLocaleDateString(), duration: 1 }
+        getHotels(payload)
+    }, [])
     return (
         <div className='layout'>
             <header className='header__wrapper'>

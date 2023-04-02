@@ -50,8 +50,8 @@ const reducer = (state, action) => {
 
 const calendarBlurListenerCreator = (closeCallback) => {
     return (event) => {
-        event.preventDefault();
-        if (!event.target.closest('.calendar') && !event.target.classList.contains('day')) {
+        event.stopPropagation();
+        if (!event.target.closest('.calendar') && !event.target.closest('.date-picker__input')) {
             closeCallback()
         }
     }

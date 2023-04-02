@@ -6,7 +6,7 @@ import disabledFilter from '../../assets/hotels-page/filter/disable.svg'
 import './Favorites.scss'
 
 export const Favorites = () => {
-    const { hotels, sort: { rating, price } } = useSelector(store => store.favorites)
+    const { favorites: { sort, hotels } } = useSelector(store => store.booking)
     const { deleteFromFavorites, sortByPrice, sortByRating } = useFavoritesActions()
 
     const removeFromFavorites = (id) => deleteFromFavorites(id)
@@ -19,28 +19,28 @@ export const Favorites = () => {
         <div className='favorites'>
             <p className='favorites__title'>Избранное</p>
             <div className="filter">
-                <button className={rating.isSorting ? 'filter__rating' : 'filter__rating disabled'} onClick={ratingSorting}>
+                <button className={sort.rating.isSorting ? 'filter__rating' : 'filter__rating disabled'} onClick={ratingSorting}>
                     Рейтинг
-                    <img src={rating.isSorting ? enaubledFilter : disabledFilter} className={!rating.isAscending ? 'descending' : ''} alt="" />
+                    <img src={sort.rating.isSorting ? enaubledFilter : disabledFilter} className={!sort.rating.isAscending ? 'descending' : ''} alt="" />
                 </button>
-                <button className={price.isSorting ? 'filter__price' : 'filter__price disabled'} onClick={priceSorting}>
+                <button className={sort.price.isSorting ? 'filter__price' : 'filter__price disabled'} onClick={priceSorting}>
                     Цена
-                    <img src={price.isSorting ? enaubledFilter : disabledFilter} className={!price.isAscending ? 'descending' : ''} alt="" />
+                    <img src={sort.price.isSorting ? enaubledFilter : disabledFilter} className={!sort.price.isAscending ? 'descending' : ''} alt="" />
                 </button>
             </div>
             <div className='favorites__hotels'>
-                {hotels.map(item => (
-                    <div key={item.id}>
+                {hotels.map((hotel, idx) => (
+                    <div key={hotel.hotelId}>
                         <Hotel 
-                            name={item.name} 
-                            startDate={item.startDate}
-                            duration={item.duration} 
-                            rating={item.rating} 
-                            price={item.price}
-                            isFavorite={item.isFavorite}
-                            onFavoriteClick={() => removeFromFavorites(item.id)}
+                            name={hotel.hotelName} 
+                            startDate={hotel.checkIn}
+                            duration={hotel.duration} 
+                            rating={hotel.stars} 
+                            price={hotel.priceAvg}
+                            isFavorite={true}
+                            onFavoriteClick={() => removeFromFavorites(hotel.hotelId)}
                         />
-                        {item !== 3 && <hr className='block__bottom' />}
+                        {idx !== hotels.length - 1 && <hr className='block__bottom' />}
                     </div>
                 ))}
             </div>

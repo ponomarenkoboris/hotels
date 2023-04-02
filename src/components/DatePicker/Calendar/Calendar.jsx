@@ -15,7 +15,6 @@ export const Calendar = ({ initialDate, onPick }) => {
     const days = getDaysInMonth(getFormatDate(day, month, year))
 
     const pickDate = (event) => {
-        event.preventDefault()
         const targetDay = event.target.dataset.day || null
         if (targetDay && !event.target.classList.contains('choosen__day') && !event.target.classList.contains('disabled__day')) {
             event.target.classList.add('choosen__day')
@@ -24,14 +23,16 @@ export const Calendar = ({ initialDate, onPick }) => {
         }
     }
 
-    const prevMonthHandler = () => {
+    const prevMonthHandler = (event) => {
+        event.preventDefault()
         if (optionValue === options[0]) return
         const prevMonth = month - 1 < 0 ? 11 : month - 1
         const option = options.find(option => option.includes(months[prevMonth - 1]))
         setDate(date => ({ ...date, month: prevMonth, optionValue: option }))
     }
 
-    const nextMonthHandler = () => {
+    const nextMonthHandler = (event) => {
+        event.preventDefault()
         if (optionValue === options[options.length - 1]) return
         const nextMonth = month + 1 > 11 ? 0 : month + 1
         const option = options.find(option => option.includes(months[nextMonth - 1]))
