@@ -4,7 +4,7 @@ import './Slider.scss';
 
 export const Slider = () => {
     const sliderRef = useRef(null)
-    const { images } = useSelector(store => store.booking, customEqual)
+    const { images } = useSelector(store => store.booking)
 
     const wheelHandler = (event) => {
         event.preventDefault();
