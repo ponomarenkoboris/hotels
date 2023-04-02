@@ -3,7 +3,7 @@ import { bookingActionCreators } from './bookigSlice'
 const { getHotelsFulfilled, getHotelsRejected } = bookingActionCreators()
 
 const fetchHotels = (place, checkIn, checkOut) => 
-    fetch(`http://engine.hotellook.com/api/v2/cache.json?location=${place}&checkIn=${checkIn}&checkOut=${checkOut}&limit=8&currency=`)
+    fetch(`https://engine.hotellook.com/api/v2/cache.json?location=${place}&checkIn=${checkIn}&checkOut=${checkOut}&limit=8&currency=`)
 
 const requestFormatDate = (date) => date.split('.').reverse().join('-')
 
